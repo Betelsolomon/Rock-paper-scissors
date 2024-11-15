@@ -34,18 +34,21 @@
          
          function playround( humanChoice , computerChoice){
             if (humanChoice===computerChoice) {
+                console.log("it's a tie");
 
             }
             else if ((humanChoice==="rock" && computerChoice ==="scissors" )||(humanChoice==="paper" && computerChoice ==="rock")||(humanChoice==="scissors" && computerChoice ==="paper") )
-            {  humanScore ++;
+            { 
+                 console.log("human won ");
               
             }
             else{
-               computerScore ++;
+                console.log("computer won");
                 
             }
         }
 
+        /*
         for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
@@ -62,6 +65,10 @@
             else{
                 console.log("computer won computer score is " + computerScore+ "human score is " + humanScore);
             }
+                */
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playround(humanSelection,computerSelection);
      }
      playGame();
     </script>
