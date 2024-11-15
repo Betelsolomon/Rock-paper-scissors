@@ -3,42 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-  
-     
-     <script src="myScript.js" defer></script>
-
+    <title>Rock-paper-scissors</title>
 </head>
 <body>
-    <h3>
-        Play Rock-Paper-Scissors with a computer
-    </h3>
-    <h3>What's your choice</h3>
-<div class="container">
-    
-    <div class="item">
-        <button id="rock">Rock</button>
-    </div>
-    <div class="item">
-        <button id="paper">Paper</button>
+    <script>
+      function playGame(){
 
-    </div>
-    <div class="item">
-        <button id="scissors">Scissors</button>
-    </div>
-    
-</div>
-<div id="result1">
-   
-</div>
-<div id="result2"></div>
-<div id="result3"></div>
+            
+        let computerScore = 0;
+        let humanScore = 0;
+        function getComputerChoice(){
+            const randNum = Math.floor(Math.random() * 3) ;
+            if (randNum == 0) {
+                return "rock" ;
+            }
+            else if (randNum == 1) {
+                return "paper";
+            }
+            else{
+                return "scissors";
+            }
+           
+        }
+        
+        function getHumanChoice(){
+            const userInput = prompt ("Enter your coice");
+            const humanChoice = userInput.toLowerCase();
+            return humanChoice;
+         }
+         
+         function playround( humanChoice , computerChoice){
+            if (humanChoice===computerChoice) {
 
-   
-  
-   
+            }
+            else if ((humanChoice==="rock" && computerChoice ==="scissors" )||(humanChoice==="paper" && computerChoice ==="rock")||(humanChoice==="scissors" && computerChoice ==="paper") )
+            {  humanScore ++;
+              
+            }
+            else{
+               computerScore ++;
+                
+            }
+        }
 
-
+        for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playround(humanSelection,computerSelection);
+            
+        }
+        if(humanScore === computerScore){
+            console.log("it's a tie");
+            
+        }
+        else if (humanScore > computerScore) {
+                console.log("human won human score is" + humanScore+ "computer score is" + computerScore);
+            }
+            else{
+                console.log("computer won computer score is " + computerScore+ "human score is " + humanScore);
+            }
+     }
+     playGame();
+    </script>
 </body>
 </html>
